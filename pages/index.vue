@@ -76,24 +76,6 @@ import Swal from "sweetalert2";
 const store = useCounterStore();
 const localPath = useLocalePath();
 onMounted(() => {
-  if ( !window.scroller )
-  {
-    const definition = useNuxtApp().$LocomotiveScroll;
-    window.scroller = new definition({
-      el: document.querySelector("[data-scroll-container]"),
-      reloadOnContextChange:true,
-      smooth: true,
-    });
-  }
-
-  setInterval(() => {
-    window.scroller?.update();
-  }, 3000);
+  if ( process.client ) useNuxtApp().$initLocomotive();
 } );
-useRouter().beforeEach( () =>
-{
-  window.scroller?.stop();
-  window.scroller?.destroy();
-  window.scroller = undefined;
-})
 </script>
