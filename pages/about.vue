@@ -13,6 +13,7 @@
         data-src="/images/4k.jpg"
       />
       <button class="btn" @click="toastMe">taost</button>
+      <div>pos: {{x}}, {{y}}</div>
       <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative]"
         :slides-per-view="1"
@@ -67,6 +68,7 @@
 
 <script setup>
 import Toastr from "toastr";
+const { x, y } = useMouse()
 const localPath = useLocalePath();
 onMounted(() => {
   if (process.client) useNuxtApp().$initLocomotive();
