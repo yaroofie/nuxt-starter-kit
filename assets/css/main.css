@@ -93,3 +93,9 @@
     @apply input input-bordered input-primary w-full max-w-xs
   }
 }
+
+/* gsap animation styles */
+[data-animate-in-vertically],
+[data-animate-in-horizontally]{
+  opacity: 0;
+}

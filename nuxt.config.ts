@@ -28,7 +28,6 @@ export default defineNuxtConfig({
       },
     ],
   ],
-  plugins: [{ src: "~/plugins/locomotive", mode: "client" }],
   i18n: {
     defaultLocale: "fa",
     locales: [

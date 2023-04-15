@@ -4,10 +4,17 @@
       <div
         class="min-h-screen bg-base-100 flex flex-col justify-center items-center"
       >
-        <h1 data-scroll class="text-3xl font-bold underline mb-10">
+        <h1
+          data-scroll
+          data-animate-in-vertically
+          class="text-3xl font-bold underline mb-10"
+        >
           {{ $t("welcome") }}!
         </h1>
-        <div class="card w-96 bg-primary text-primary-content">
+        <div
+          data-animate-in-horizontally
+          class="card w-96 bg-primary text-primary-content"
+        >
           <div class="card-body">
             <h2 class="card-title">Store counter is {{ store.count }}</h2>
             <Icon name="uil:github" />
@@ -76,6 +83,10 @@ import Swal from "sweetalert2";
 const store = useCounterStore();
 const localPath = useLocalePath();
 onMounted(() => {
-  if (process.client) useNuxtApp().$initLocomotive();
+  if (process.client) {
+    const app = useNuxtApp();
+    app.$animateAll();
+    app.$initLocomotive();
+  }
 });
 </script>
