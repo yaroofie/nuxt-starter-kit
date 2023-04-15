@@ -45,9 +45,9 @@
       <!-- {{ store.count }} -->
       <FormKit type="form">
         <FormKit
+          id="name"
           type="text"
           name="name"
-          id="name"
           class="formkit-input mb-4"
           validation="required|not:Admin"
           label="Name"
@@ -55,11 +55,11 @@
           placeholder="“Scarlet Sword”"
         />
         <FormKit
+          id="class"
           type="select"
           label="Class"
           name="class"
           class="formkit-input mb-4"
-          id="class"
           placeholder="Select a class"
           :options="['Warrior', 'Mage', 'Assassin']"
         />
@@ -76,6 +76,6 @@ import Swal from "sweetalert2";
 const store = useCounterStore();
 const localPath = useLocalePath();
 onMounted(() => {
-  if ( process.client ) useNuxtApp().$initLocomotive();
-} );
+  if (process.client) useNuxtApp().$initLocomotive();
+});
 </script>

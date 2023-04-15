@@ -8,13 +8,11 @@
 import { Fancybox } from "@fancyapps/ui";
 onMounted(() => {
   Fancybox.bind("[data-fancybox]");
-})
-useRouter().beforeEach( () =>
-{
+});
+useRouter().beforeEach(() => {
   useNuxtApp().$destroyLocomotive();
-} );
-useRouter().afterEach( () =>
-{
+});
+useRouter().afterEach(() => {
   Fancybox.bind("[data-fancybox]");
-})
+});
 </script>

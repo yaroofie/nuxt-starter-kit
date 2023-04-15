@@ -13,7 +13,7 @@
         data-src="/images/4k.jpg"
       />
       <button class="btn" @click="toastMe">taost</button>
-      <div>pos: {{x}}, {{y}}</div>
+      <div>pos: {{ x }}, {{ y }}</div>
       <Swiper
         :modules="[SwiperAutoplay, SwiperEffectCreative]"
         :slides-per-view="1"
@@ -41,19 +41,19 @@
       <!-- {{ store.count }} -->
       <FormKit type="form">
         <FormKit
+          id="name"
           type="text"
           name="name"
-          id="name"
           validation="required|not:Admin"
           label="Name"
           help="Enter your character's full name"
           placeholder="“Scarlet Sword”"
         />
         <FormKit
+          id="class"
           type="select"
           label="Class"
           name="class"
-          id="class"
           placeholder="Select a class"
           :options="['Warrior', 'Mage', 'Assassin']"
         />
@@ -68,7 +68,7 @@
 
 <script setup>
 import Toastr from "toastr";
-const { x, y } = useMouse()
+const { x, y } = useMouse();
 const localPath = useLocalePath();
 onMounted(() => {
   if (process.client) useNuxtApp().$initLocomotive();
@@ -77,7 +77,6 @@ function toastMe() {
   Toastr.success("Have fun storming the castle!", "Miracle Max Says");
 }
 </script>
-
 
 <style>
 .swiper-slide {
@@ -88,7 +87,7 @@ function toastMe() {
   height: 20vh;
   font-size: 4rem;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: gold;
 }
 .swiper-wrapper {
