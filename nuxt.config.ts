@@ -15,6 +15,7 @@ export default defineNuxtConfig( {
     '@nuxt/image-edge',
     '@nuxtjs/i18n',
     '@nuxtjs/eslint-module',
+    'nuxt-swiper',
     [
       '@pinia/nuxt',
       {
