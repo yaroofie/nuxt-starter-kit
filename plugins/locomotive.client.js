@@ -5,15 +5,13 @@ export default defineNuxtPlugin(() => {
   const interval = ref(null);
 
   function initLocomotive() {
-    if (!window.scroller) {
-      window.scroller = new LocomotiveScroll({
-        el: document.querySelector("[data-scroll-container]"),
-        reloadOnContextChange: true,
-        smooth: true,
-      });
-    }
+    destroyLocomotive();
 
-    clearInterval(interval.value);
+    window.scroller = new LocomotiveScroll({
+      el: document.querySelector("[data-scroll-container]"),
+      reloadOnContextChange: true,
+      smooth: true,
+    });
 
     interval.value = setInterval(() => {
       window.scroller?.update();

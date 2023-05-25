@@ -86,7 +86,6 @@ onMounted(() => {
   if (process.client) {
     const app = useNuxtApp();
     app.$animateAll();
-    app.$initLocomotive();
   }
 });
 </script>

@@ -1,18 +1,20 @@
 <template>
   <div>
-    <RouterView />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
 
 <script setup>
-import { Fancybox } from "@fancyapps/ui";
 onMounted(() => {
-  Fancybox.bind("[data-fancybox]");
-});
-useRouter().beforeEach(() => {
-  useNuxtApp().$destroyLocomotive();
-});
+  if(process.client) useNuxtApp().$initLocomotive();
+})
 useRouter().afterEach(() => {
-  Fancybox.bind("[data-fancybox]");
-});
+  useNuxtApp().$initLocomotive();
+} );
+useRouter().beforeEach( () =>
+{
+  useNuxtApp().$destroyLocomotive();
+})
 </script>

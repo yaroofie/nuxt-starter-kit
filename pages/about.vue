@@ -70,9 +70,6 @@
 import Toastr from "toastr";
 const { x, y } = useMouse();
 const localPath = useLocalePath();
-onMounted(() => {
-  if (process.client) useNuxtApp().$initLocomotive();
-});
 function toastMe() {
   Toastr.success("Have fun storming the castle!", "Miracle Max Says");
 }
