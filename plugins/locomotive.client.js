@@ -17,7 +17,7 @@ export default defineNuxtPlugin(() => {
 
     interval.value = setInterval(() => {
       window.scroller?.update();
-    }, 3000);
+    }, 500);
   }
 
   function destroyLocomotive() {

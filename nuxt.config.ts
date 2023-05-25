@@ -1,8 +1,5 @@
-import en from "./locales/en.json";
-import fa from "./locales/fa.json";
-// https://nuxt.com/docs/api/configuration/nuxt-config
-export default defineNuxtConfig({
-  css: ["~/assets/css/main.css"],
+export default defineNuxtConfig( {
+  css: [ "~/assets/css/main.css" ],
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -13,43 +10,37 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@formkit/nuxt",
     "@nuxt/image-edge",
-    "@nuxtjs/i18n",
+    [ "@nuxtjs/i18n", {
+      locales: [
+        {
+          code: 'en',
+          file: 'en.json',
+          dir: "ltr",
+          iso: "en-US",
+          icon: "/images/lang/en.png"
+        },
+        {
+          code: 'fa',
+          file: 'fa.json',
+          dir: "rtl",
+          iso: "fa-IR",
+          icon: "/images/lang/ir.png"
+        },
+      ],
+      lazy: true,
+      langDir: 'lang',
+      defaultLocale: 'fa',
+    } ],
     "@nuxtjs/eslint-module",
     "nuxt-swiper",
     "@vueuse/nuxt",
     [
       "@pinia/nuxt",
       {
-        autoImports: [
-          // automatically imports `defineStore`
-          "defineStore", // import { defineStore } from 'pinia'
-          ["defineStore", "definePiniaStore"], // import { defineStore as definePiniaStore } from 'pinia'
-        ],
+        autoImports: ["defineStore",],
       },
     ],
   ],
-  i18n: {
-    defaultLocale: "fa",
-    locales: [
-      {
-        code: "en",
-        iso: "en-US",
-      },
-      {
-        code: "fa",
-        iso: "fa-IR",
-      },
-    ],
-    /* module options */
-    vueI18n: {
-      legacy: false,
-      locale: "en",
-      messages: {
-        en,
-        fa,
-      },
-    },
-  },
   imports: {
     autoImport: true,
     dirs: ["./stores"],
@@ -61,4 +52,4 @@ export default defineNuxtConfig({
       },
     },
   },
-});
+} );
